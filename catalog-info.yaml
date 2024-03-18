@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: huge-tarantula-nodejs-gitops
+  description: This is GitOps manifest for huge-tarantula-nodejs   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: huge-tarantula-nodejs
+    janus-idp.io/tekton: huge-tarantula-nodejs 
+    backstage.io/kubernetes-id: huge-tarantula-nodejs 
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:huge-tarantula-nodejs
